@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+.feedback-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.feedback-image {
+  flex: 1;
+  background-image: url('/assets/images/feedback.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.brand-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #666;
+}
+
+.brand-name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.feedback-form {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  animation: slideUp 0.6s ease-out;
+}
+
+h2 {
+  color: #01c892;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.required {
+  color: #ff0000;
+  margin-left: 0.2rem;
+}
+
+textarea {
+  width: 94%;
+  padding: 0.8rem;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-height: 200px;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #01c892;
+  transform: translateX(5px);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #01c892;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #004099;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@media (max-width: 768px) {
+  .feedback-container {
+    flex-direction: column;
+  }
+  
+  .feedback-image {
+    min-height: 300px;
+  }
+  
+  .brand-name {
+    font-size: 2.5rem;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+  }
+}

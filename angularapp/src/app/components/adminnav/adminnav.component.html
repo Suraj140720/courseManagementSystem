@@ -1,0 +1,19 @@
+<div class="navbar-links">
+  <div class="navbar-user-info-box">
+    <i class="fas fa-user-circle"></i>
+    <span style="color:#0056D2;">{{ username.toUpperCase()}}</span>
+  </div>
+    <a routerLink="admin/app-home" class="nav-link" routerLinkActive="active">Home</a>
+    <div class="menu-item" [ngClass]="{'active': isCourseActive()}">
+      <span class="menu-title">Course <i class="fas fa-chevron-down"></i></span>
+      <div class="submenu">
+        <a routerLink="admin/add-course" routerLinkActive="active">Add Course</a>
+        <a routerLink="admin/view-courses" routerLinkActive="active">View Courses</a>
+      </div>
+    </div>
+    <a routerLink="admin/view-applied-courses" class="nav-link" routerLinkActive="active">Application Requested</a>
+    <a routerLink="admin/view-feedback" class="nav-link" routerLinkActive="active">Feedbacks</a>
+    <button class="btn btn-danger" (click)="logout()">Logout</button>
+  </div>
+
+  

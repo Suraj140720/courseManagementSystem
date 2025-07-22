@@ -1,0 +1,186 @@
+<div class="home-container" style="margin-top: 70px;">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="home-content">
+      <h1 class="tagline">Where Learning <br><span class="typing">Meets Ease</span></h1>
+      <p class="description">
+        LearnEase is a user-friendly course management system that simplifies the educational experience for both educators and students. Access courses, feedback, and applications effortlessly, all in one place.
+      </p>
+      <div class="cta-buttons">
+        <button class="primary-btn" routerLink="/login">Get Started</button>
+        <button class="secondary-btn" routerLink="/register">Sign up</button>
+      </div>
+    </div>
+    <div class="home-image">
+      <img src="assets/course stds.png" alt="LearnEase Image">
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features-section reveal">
+    <div class="chooselearn">
+      <h2 style="font-size: 40px;">Why Choose <span style="color: #0056D2;">LearnEase</span>?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <img src="assets/images/card 1.png" alt="Easy Learning">
+        <h3>Easy Learning</h3>
+        <p>Interactive courses designed for maximum engagement and retention</p>
+      </div>
+      <div class="feature-card">
+        <img src="assets/images/card 2.png" alt="Track Progress">
+        <h3>Track Progress</h3>
+        <p>Monitor your learning journey with detailed analytics</p>
+      </div>
+      <div class="feature-card">
+        <img src="assets/images/card 3.png" alt="Expert Support">
+        <h3>Expert Support</h3>
+        <p>24/7 assistance from our dedicated support team</p>
+      </div>
+    </div>
+    </div>
+    
+  </div>
+
+  <div class="popular-courses-section section-common reveal" *ngIf="authService.isLoggedIn()">
+    <h2 class="section-heading">Most Popular Courses</h2>
+    <div class="popular-courses-grid">
+      <div class="popular-course-card" *ngFor="let course of popularCourses; let i = index" [style.--card-index]="i">
+        <div class="popular-image">
+          <div class="course-rank">
+            <span>#{{i + 1}}</span>
+          </div>
+          <img [src]="'assets/images/img '+(i + 5)+ '.png'" alt="Course Image">
+          <div class="enrollment-count">
+            <i class="fas fa-users"></i>
+            <span>{{courseEnrollments[course.CourseId] || 0}} enrolled</span>
+          </div>
+        </div>
+        <div class="course-content">
+          <h3>{{course.CourseName}}</h3>
+          <p class="instructor">
+            <i class="fas fa-chalkboard-teacher"></i> {{course.InstructorName}}
+          </p>
+          <p class="description">{{course.Description}}</p>
+          <div class="course-details">
+            <span><i class="fas fa-clock"></i> {{course.DurationInHours}} hours</span>
+            <span><i class="fas fa-dollar-sign"></i> {{course.Price}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Statistics Section -->
+  <div class="stats-section reveal">
+    <div class="stat-card">
+      <h3 class="counter">1000+</h3>
+      <p>Active Students</p>
+    </div>
+    <div class="stat-card">
+      <h3 class="counter">100+</h3>
+      <p>Expert Instructors</p>
+    </div>
+    <div class="stat-card">
+      <h3 class="counter">500+</h3>
+      <p>Courses Available</p>
+    </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <div class="upcoming-courses-section section-common reveal" *ngIf="authService.isLoggedIn()">
+    <h2 class="section-heading">Upcoming Courses</h2>
+    <div class="courses-grid">
+      <div class="course-card" *ngFor="let course of upcomingCourses; let i = index" [style.--card-index]="i">
+        <div class="upcoming-image">
+          <img [src]="'assets/images/img '+(i + 1)+ '.png'" alt="Course Name">
+          <span class="coming-soon-badge">Coming Soon</span>
+        </div>
+          <div class="course-content">
+            <h3>{{course.CourseName}}</h3>
+            <p class="instructor">
+              <i class="fas fa-chalkboard-teacher"></i> {{course.InstructorName}}
+            </p>
+            <p class="description">{{course.Description}}</p>
+            <div class="course-details">
+              <span><i class="fas fa-clock"></i> {{course.DurationInHours}} hours</span>
+              <span><i class="fas fa-dollar-sign"></i> {{course.Price}}</span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action Section -->
+  <div class="cta-section reveal">
+    <h2>Ready to Start Your Learning Journey?</h2>
+    <p>Join thousands of students already learning with LearnEase</p>
+    <button class="primary-btn" routerLink="/register">Sign Up Now</button>
+  </div>
+
+  <div class="testimonials-section reveal">
+    <h2 class="section-heading" style="font-size: 40px;">What Our Students Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <img src="assets/images/card 2.png" alt="Student">
+        <p>"LearnEase transformed my learning experience completely!"</p>
+        <h4>Sarah Johnson</h4>
+      </div>
+      <div class="testimonial-card">
+        <img src="assets/images/card 3.png" alt="Student">
+        <p>"The best platform for online learning I've ever used."</p>
+        <h4>Michael Chen</h4>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+<footer class="footer-section">
+  <div class="footer-content">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3>LearnEase</h3>
+        <p>Empowering education through technology. Making learning accessible and enjoyable for everyone.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a routerLink="/about">About Us</a></li>
+          <li><a routerLink="/courses">Courses</a></li>
+          <li><a routerLink="/instructors">Instructors</a></li>
+          <li><a routerLink="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a routerLink="/help">Help Center</a></li>
+          <li><a routerLink="/faq">FAQs</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
+          <li><a routerLink="/privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Newsletter</h4>
+        <p>Subscribe to our newsletter for updates and special offers.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email">
+          <button class="subscribe-btn">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 LearnEase. All rights reserved.</p>
+  </div>
+</footer>

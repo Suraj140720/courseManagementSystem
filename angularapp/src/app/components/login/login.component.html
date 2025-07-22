@@ -1,0 +1,34 @@
+
+<div class="login-container" style="margin-top: 80px;">
+  <div class="login-image">
+    <div class="brand-overlay">
+    </div>
+  </div>
+
+  <div class="login-form">
+    <h2>Welcome Back</h2>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <div class="form-group">
+        <label for="username">Email<span class="required">*</span></label>
+        <input type="text" id="username" name="username" [(ngModel)]="loginData.Email" required [ngModelOptions]="{standalone : true}" #usernameNgModel="ngModel">
+        <div class="error-message" *ngIf="usernameNgModel.invalid && (usernameNgModel.dirty || usernameNgModel.touched)">
+          Email is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password<span class="required">*</span></label>
+        <div class="password-field">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" name="password" [(ngModel)]="loginData.Password" required [ngModelOptions]="{standalone : true}" #passwordNgModel="ngModel">
+          <i class="fas fa-eye{{showPassword ? '-slash' : ''}}" (click)="togglePasswordVisibility()" style="margin-left: -50px"></i>
+        </div>
+        <div class="error-message" *ngIf="passwordNgModel.invalid && (passwordNgModel.dirty || passwordNgModel.touched)">
+          Password is required<br>
+        </div>
+      </div>
+      <button type="submit" id="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/register">Register here</a>  <br> In case of any issues please contact Super-Admin </p>
+  </div>
+</div>
+

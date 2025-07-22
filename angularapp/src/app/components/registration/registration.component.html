@@ -1,0 +1,96 @@
+<div class="registration-container" style="margin-top: 80px;">
+ 
+  <div class="registration-image">
+    <div class="brand-overlay">
+    </div>
+  </div>
+ 
+  <div class="registration-form">
+    <h1>Create Account</h1>
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+      <div class="form-group">
+        <label for="username">Username<span>*</span></label>
+        <input id="username" name="username" ngModel required>
+        <div
+          *ngIf="registerForm.controls.username?.invalid && (registerForm.controls.username?.dirty || registerForm.controls.username?.touched)"
+          class="error-message">
+          <div *ngIf="registerForm.controls.username?.errors?.required">Username is required.</div>
+        </div>
+      </div>
+ 
+      <div class="form-group">
+        <label for="email">Email<span>*</span></label>
+        <input id="email" name="email" ngModel required email>
+        <div
+          *ngIf="registerForm.controls.email?.invalid && (registerForm.controls.email?.dirty || registerForm.controls.email?.touched)"
+          class="error-message">
+          <div *ngIf="registerForm.controls.email?.errors?.required">Email is required.</div>
+          <div *ngIf="registerForm.controls.email?.errors?.email">Email format is invalid.</div>
+        </div>
+      </div>
+ 
+      <div class="form-group">
+        <label for="password">Password<span>*</span></label>
+        <div class="password-field">
+          <input id="password" name="password" [(ngModel)]="user.Password" #passwordCtrl="ngModel"
+
+            (input)="checkPasswordsMatch()" [type]="showPassword ? 'text' : 'password'" required 
+
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$" />
+          <i class="fas fa-eye{{ showPassword ? '-slash' : '' }}" (click)="togglePasswordVisibility()"
+            style="margin-left: -50px; z-index: 5000; transform: translateX(10px);"></i>
+        </div>
+        <div class="error-message" *ngIf="passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)">
+          <div *ngIf="passwordCtrl.errors?.required">Password is required.</div>
+          <div *ngIf="passwordCtrl.errors?.pattern">
+            Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters in length.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password<span>*</span></label>
+        <div class="password-field">
+          <input id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword"
+            #confirmPasswordCtrl="ngModel" (input)="checkPasswordsMatch()"
+            [type]="showConfirmPassword ? 'text' : 'password'" required />
+          <i class="fas fa-eye{{ showConfirmPassword ? '-slash' : '' }}" (click)="toggleConfirmPasswordVisibility()"
+            style="margin-left: -50px; z-index: 5000; transform: translateX(10px);"></i>
+        </div>
+        <div class="error-message" *ngIf="confirmPasswordCtrl.touched || confirmPasswordCtrl.dirty">
+          <div *ngIf="confirmPasswordCtrl.errors?.required">Confirm Password is required.</div>
+          <div *ngIf="!passwordsMatch && confirmPassword !== ''">
+            Passwords do not match.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mobileNumber">Mobile Number<span>*</span></label>
+        <input id="mobileNumber" name="mobileNumber" ngModel required pattern="^\d{10}$">
+        <div
+          *ngIf="registerForm.controls.mobileNumber?.invalid && (registerForm.controls.mobileNumber?.dirty || registerForm.controls.mobileNumber?.touched)"
+          class="error-message">
+          <div *ngIf="registerForm.controls.mobileNumber?.errors?.required">Mobile number is required.</div>
+          <div *ngIf="registerForm.controls.mobileNumber?.errors?.pattern">Mobile number must consist of exactly 10
+            digits.</div>
+        </div>
+      </div>
+ 
+      <div class="form-group">
+        <label for="role">Role<span>*</span></label>
+        <select id="role" name="role" ngModel required>
+          <option value="">Select a role</option>
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+        <div
+          *ngIf="registerForm.controls.role?.invalid && (registerForm.controls.role?.dirty || registerForm.controls.role?.touched)"
+          class="error-message">
+          Role is required.
+        </div>
+      </div>
+ 
+      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    </form>
+  </div>
+</div>

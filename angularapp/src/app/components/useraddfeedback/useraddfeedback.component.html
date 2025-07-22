@@ -1,0 +1,23 @@
+<div class="feedback-container" style="margin-top: 80px;">
+  <div class="feedback-image">
+    <div class="brand-overlay">
+      
+    </div>
+  </div>
+
+  <div class="feedback-form">
+    <h2>Share Your Thoughts</h2>
+    <div class="form-container">
+      <form #feedbackForm="ngForm" (ngSubmit)="onSubmit(feedbackForm)">
+        <div class="form-group">
+          <label for="feedbackText">Feedback<span class="required">*</span></label>
+          <textarea id="feedbackText" [(ngModel)]="feedback.FeedbackText" name="feedbackText" required></textarea>
+          <div class="error-message" *ngIf="feedbackForm.submitted && !feedback.FeedbackText">
+            Feedback is required.
+          </div>
+        </div>
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+.navbar {
+  background-color: #fafafa; /* RoyalBlue */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 200;
+  width: 98%;
+  top:0;
+  /* box-shadow : #0056D2 0px 4px 10px; */
+}
+
+.navbar-title h2 {
+  margin: 0;
+  color: #0056D2; /* RoyalBlue */
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  background-color: #ffffff; /* White */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.navbar-links .btn {
+  margin: 0 10px;
+  color: #0056D2; /* RoyalBlue */
+  background-color: #fafafa; /* White */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-links .btn i {
+  margin-right: 5px;
+}
+
+.navbar-links .btn:hover {
+  background-color: #0056D2; /* RoyalBlue */
+  color: #ffffff; /* White */
+}
+
+.logo {
+  height: 50px; /* Adjust the height as needed */
+  width: auto;
+  border-radius: 5px; /* Optional: to match the style of the image */
+}
+
+.navbar-title{
+  cursor: pointer;
+}

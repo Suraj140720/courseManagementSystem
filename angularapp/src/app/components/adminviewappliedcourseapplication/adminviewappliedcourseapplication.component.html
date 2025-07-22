@@ -1,0 +1,72 @@
+
+<div style="margin-top: 80px;">
+  <div class="approval-header">
+    <h1>Course Applications</h1>
+  </div>
+  
+  
+  <div class="search-filter-container">
+    <div>
+      <input 
+      class="search-input" 
+      type="text" 
+      placeholder="Search by Course Name or Instructor Name" 
+      (input)="searchDynamic($event.target.value)"
+    >
+    </div>
+    <div>
+      <label>Filter By: </label>
+    <select 
+      class="status-filter" 
+      (change)="filterByStatus($event.target.value)"
+    >
+      <option value="All">All Status</option>
+      <option value="Pending">Pending</option>
+      <option value="Approved">Approved</option>
+      <option value="Rejected">Rejected</option>
+    </select>
+    </div>
+  </div>
+  
+  <div class="apCourse-table">
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Username</th>
+          <th>Course Name</th>
+          <th>Instructor Name</th>
+          <th>Skills</th>
+          <th>Education Level</th>
+          <th>Experience Details</th>
+          <th>Additional Notes</th>
+          <th>Status</th>
+          <th>Application Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="listCourseApplications.length === 0">
+          <td colspan="11">Oops! No record found.</td>
+        </tr>
+        <tr *ngFor="let application of listCourseApplications; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ getUsername(application.UserId) }}</td>
+          <td>{{ getCourseName(application.CourseId) }}</td>
+          <td>{{ getInstructorName(application.CourseId) }}</td>
+          <td>{{ application.Skills }}</td>
+          <td>{{ application.EducationLevel }}</td>
+          <td>{{ application.ExperienceDetails }}</td>
+          <td>{{ application.AdditionalNotes }}</td>
+          <td>{{ application.Status }}</td>
+          <td>{{ application.ApplicationDate }}</td>
+          <td>
+            <button *ngIf="shouldShowApproveButton(application.Status)" (click)="approveApplication(application)" style="background-color: #28a745;">Approve</button>
+            <button *ngIf="shouldShowRejectButton(application.Status)" (click)="rejectApplication(application)">Reject</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>

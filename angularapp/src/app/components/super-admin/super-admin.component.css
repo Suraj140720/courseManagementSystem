@@ -1,0 +1,115 @@
+.super-admin-container {
+    padding: 2rem;
+    background: #ffffff;
+    min-height: 100vh;
+  }
+  
+  .page-title {
+    color: #0056D2;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    border-bottom: 3px solid #0056D2;
+    padding-bottom: 1rem;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 86, 210, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+  
+  thead {
+    background-color: #0056D2;
+    color: #ffffff;
+  }
+  
+  th {
+    padding: 1.2rem 1rem;
+    text-align: left;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+  }
+  
+  td {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+  }
+  
+  tbody tr:hover {
+    background-color: rgba(0, 86, 210, 0.05);
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Status Buttons */
+  button {
+    padding: 0.6rem 1.2rem;
+    margin: 0 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:first-child {
+    background-color: #0056D2;
+    color: #ffffff;
+  }
+  
+  button:last-child {
+    background-color: #ffffff;
+    color: #0056D2;
+    border: 2px solid #0056D2;
+  }
+  
+  button:first-child:hover {
+    background-color: #004099;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 86, 210, 0.2);
+  }
+  
+  button:last-child:hover {
+    background-color: #fff5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 86, 210, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  
+    .super-admin-container {
+      padding: 1rem;
+    }
+  
+    .page-title {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Animation for table rows */
+  tbody tr {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

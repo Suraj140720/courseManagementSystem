@@ -1,0 +1,60 @@
+
+
+<div style="margin-top: 80px;">
+  <div class="approval-header">
+    <h1>Courses</h1>
+  </div>
+  
+  <div class="container">
+    <div >
+   
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by Course Name and Instructor Name"
+        [(ngModel)]="searchQuery"
+        (input)="onSearch()"
+      />
+    </div>
+    
+    <div class="apCourse-table">
+    <table class="table table-bordered mt-3">
+      <thead>
+       
+        <tr>
+          <th>Sr No</th>
+          <th>Course Name</th>
+          <th>Course Content</th>
+          <th>Description</th>
+          <th>Instructor Name</th>
+          <th>Duration (hrs)</th>
+          <th>Price</th>
+          <th>Available</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="filteredCourses.length === 0" align="center" >
+          <td colspan="11">Oops! No record found.</td>
+        </tr>
+        <tr *ngFor="let course of filteredCourses; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ course.CourseName }}</td>
+          <td>{{ course.CourseContent }}</td>
+          <td>{{ course.Description }}</td>
+          <td>{{ course.InstructorName }}</td>
+          <td>{{ course.DurationInHours }}</td>
+          <td>${{ course.Price }}</td>
+          <td>{{ course.IsAvailable ? 'Yes' : 'No' }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editCourse(course.CourseId)">Edit</button>
+            <button class="btn btn-danger" (click)="confirmDelete(course.CourseId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  
+
+

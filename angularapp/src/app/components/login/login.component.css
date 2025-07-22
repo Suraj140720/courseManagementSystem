@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  width: 90%;
+  padding-right: 40px;
+}
+
+.password-field i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.password-field i:hover {
+  color: #0056D2;
+}
+
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  width: 100%;
+}
+
+.password-input-container i {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.password-input-container i:hover {
+  color: #0056D2;
+}
+
+
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-image {
+  flex: 1;
+  background-image: url('/assets/images/login.png'); /* Add your image path */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.brand-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+.brand-name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.login-form {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+}
+
+h2 {
+  color: #0056D2;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.required {
+  color: #ff0000;
+  margin-left: 0.2rem;
+}
+
+input {
+  width: 94%;
+  padding: 0.8rem;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0056D2;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #0056D2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #004099;
+}
+
+p {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #666;
+}
+
+a {
+  color: #0056D2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.login-container {
+  animation: fadeIn 0.8s ease-in;
+}
+
+/* Subtle slide up animation for the form elements */
+.login-form {
+  animation: slideUp 0.6s ease-out;
+}
+
+/* Gentle input field focus animation */
+.form-group input {
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  transform: translateX(5px);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover animation */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Link hover animation */
+a {
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Define the keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Error message animation */
+.error-message {
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+

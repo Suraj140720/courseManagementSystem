@@ -1,0 +1,43 @@
+<div class="applied-courses-header" style="margin-top: 80px;">
+  <h1>Applied Course Applications</h1>
+  <div class="search-container">
+    <input class="search-input" type="text" placeholder="Search by Course Name or Instructor Name..." (input)="searchDynamic($event.target.value)">
+  </div>
+  
+  <div class="course-table">
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Course Name</th>
+          <th>Instructor Name</th>
+          <th>Skills</th>
+          <th>Education Level</th>
+          <th>Experience Details</th>
+          <th>Status</th>
+          <th>Application Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="filteredCourseApplications.length === 0">
+          <td colspan="9">No course applications found.</td>
+        </tr>
+        <tr *ngFor="let application of filteredCourseApplications; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ getCourseName(application.CourseId) }}</td>
+          <td>{{ getInstructorName(application.CourseId) }}</td>
+          <td>{{ application.Skills }}</td>
+          <td>{{ application.EducationLevel }}</td>
+          <td>{{ application.ExperienceDetails }}</td>
+          <td>{{ application.Status }}</td>
+          <td>{{ application.ApplicationDate }}</td>
+          <td>
+            <button [disabled]="!isPending(application.Status)" (click)="deleteApplication(application.CourseApplicationId!)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>

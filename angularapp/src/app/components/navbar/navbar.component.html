@@ -1,0 +1,30 @@
+<!-- <h2>Online Course Management System</h2> -->
+
+<nav class="navbar" >
+  <div class="navbar-title" routerLink="app-home">
+    <img src="assets/mylogo.png" alt="LearnEase Logo" class="logo">
+  </div>
+  <div class="navbar-links">
+    <ng-container *ngIf="auth.isSuperAdmin(); else superAdminOrGuest">
+      <app-supernav></app-supernav>
+    </ng-container>
+
+    <ng-template #superAdminOrGuest>
+      <ng-container *ngIf="auth.isAdmin(); else userOrGuest">
+        <app-adminnav></app-adminnav>
+      </ng-container>
+    </ng-template>
+    
+    <ng-template #userOrGuest>
+      <ng-container *ngIf="auth.isUser(); else guest">
+        <app-usernav></app-usernav>
+      </ng-container>
+    </ng-template>
+    <ng-template #guest>
+      <div class="navbar-links">
+        <a routerLink="/register" aria-label="Register" class="btn"><i class="fas fa-user-plus"></i> Register</a>
+        <a routerLink="/login" aria-label="Login" class="btn"><i class="fas fa-sign-in-alt"></i> Login</a>
+      </div>
+    </ng-template>
+  </div>
+</nav>

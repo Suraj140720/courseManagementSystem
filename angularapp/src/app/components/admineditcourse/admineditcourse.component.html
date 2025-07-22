@@ -1,0 +1,94 @@
+<div class="course-container" style="margin-top: 80px;">
+  <div class="course-form">
+    <div class="header">
+      <h2>Edit Course</h2>
+      <button class="back-button" (click)="goBack()">Back</button>
+    </div>
+
+    <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="courseName">Course Name<span>*</span></label>
+        <input 
+          type="text" 
+          id="courseName"
+          formControlName="CourseName" 
+          placeholder="Course Name">
+        <div *ngIf="courseForm.get('CourseName')?.invalid && courseForm.get('CourseName')?.touched" class="error-message">
+          Course Name is required and must be at least 3 characters.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description<span>*</span></label>
+        <textarea 
+          id="description"
+          formControlName="Description" 
+          placeholder="Course Description">
+        </textarea>
+        <div *ngIf="courseForm.get('Description')?.invalid && courseForm.get('Description')?.touched" class="error-message">
+          Description is required and must be at least 10 characters.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="instructor">Instructor Name<span>*</span></label>
+        <input 
+          type="text" 
+          id="instructor"
+          formControlName="InstructorName" 
+          placeholder="Instructor Name">
+        <div *ngIf="courseForm.get('InstructorName')?.invalid && courseForm.get('InstructorName')?.touched" class="error-message">
+          Instructor Name is required and must be at least 3 characters.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="duration">Duration (in hours)<span>*</span></label>
+        <input 
+          type="number" 
+          id="duration"
+          formControlName="DurationInHours" 
+          placeholder="Duration in hours">
+        <div *ngIf="courseForm.get('DurationInHours')?.invalid && courseForm.get('DurationInHours')?.touched" class="error-message">
+          Duration is required and must be at least 1 hour.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price<span>*</span></label>
+        <input 
+          type="number" 
+          id="price"
+          formControlName="Price" 
+          placeholder="Price">
+        <div *ngIf="courseForm.get('Price')?.invalid && courseForm.get('Price')?.touched" class="error-message">
+          Price is required and must be a positive number.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="content">Course Content<span>*</span></label>
+        <textarea 
+          id="content"
+          formControlName="CourseContent" 
+          placeholder="Course Content">
+        </textarea>
+        <div *ngIf="courseForm.get('CourseContent')?.invalid && courseForm.get('CourseContent')?.touched" class="error-message">
+          Course Content is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="availability">Is Available<span>*</span></label>
+        <select 
+          id="availability"
+          formControlName="IsAvailable">
+          <option [value]="true">Yes</option>
+          <option [value]="false">No</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-success" [disabled]="courseForm.invalid">Update Course</button>
+    </form>
+  </div>
+</div>

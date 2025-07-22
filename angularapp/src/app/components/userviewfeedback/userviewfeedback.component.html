@@ -1,0 +1,33 @@
+<div class="feedback-header" style="margin-top: 80px;">
+  <h1>My Feedback</h1>
+</div>
+
+<div class="view-feedback" style="margin-bottom: 20px;">
+    <div class="container">
+      
+      <div class="sub-cont">
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        <table class="feed-table">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Feedback</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="feedbacks.length === 0">
+              <td colspan="9">Oops! No feedbacks found</td>
+            </tr>
+            <tr *ngFor="let feedback of feedbacks, let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{ feedback.FeedbackText }}</td>
+              <td>
+                <button (click)="confirmDelete(feedback)" class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,48 @@
+<div class="course-header" style="margin-top: 80px;">
+  <h1>Available Courses</h1>
+  <div class="search-container">
+    <input class="search-input" type="text" placeholder="Search by Course Name or Instructor Name..." (input)="searchDynamic($event.target.value)">
+  </div>
+</div>
+
+
+<div *ngIf="loading" class="loading">
+  Loading courses...
+</div>
+
+<div *ngIf="error" class="error">
+  {{ error }}
+</div>
+
+<div class="course-table" *ngIf="!loading && !error">
+  <table>
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Course Name</th>
+        <th>Instructor Name</th>
+        <th>Duration</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="filteredCourses.length === 0">
+        <td colspan="7">Oops! No courses found</td>
+      </tr>
+      <tr *ngFor="let course of filteredCourses; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ getCourseName(course.CourseId) }}</td>
+        <td>{{ getInstructorName(course.CourseId) }}</td>
+        <td>{{ course.DurationInHours }} hours</td>
+        <td>{{ course.Price | currency }}</td>
+        <td>{{ course.Description }}</td>
+        <td>
+          <button *ngIf="isEnrolledOrApplied(course.CourseId)" disabled style="color: #333; font-weight: 600;">Enrolled</button>
+          <button *ngIf="!isEnrolledOrApplied(course.CourseId)" (click)="enroll(course.CourseId)">Enroll Now</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

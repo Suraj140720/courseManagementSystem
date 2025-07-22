@@ -1,0 +1,246 @@
+.registration-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.registration-image {
+  flex: 1;
+  background-image: url('/assets/images/register.jpeg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.brand-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+.brand-name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.registration-form {
+  flex: 1;
+  padding: 3rem;
+  background: white;
+  overflow-y: auto;
+}
+
+h1 {
+  color: #0056D2;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+label span {
+  color: #ff0000;
+  margin-left: 0.2rem;
+}
+
+input{
+  width: 90%;
+  padding: 0.8rem;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #0056D2;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: 1rem;
+  background-color: #0056D2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #004099;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+  .registration-container {
+    flex-direction: column;
+  }
+  
+  .registration-image {
+    height: 200px;
+  }
+  
+  form {
+    grid-template-columns: 1fr;
+  }
+}
+.registration-container {
+  animation: fadeInScale 0.8s ease-out;
+}
+
+/* Form elements entrance animation */
+.registration-form {
+  animation: slideInRight 0.8s ease-out;
+}
+
+/* Form group entrance cascade */
+.form-group {
+  animation: fadeInUp 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Cascade delay for each form group */
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.form-group:nth-child(4) { animation-delay: 0.4s; }
+.form-group:nth-child(5) { animation-delay: 0.5s; }
+.form-group:nth-child(6) { animation-delay: 0.6s; }
+
+/* Input field interactions */
+input, select {
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(0, 86, 210, 0.1);
+}
+
+/* Button animations */
+button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 86, 210, 0.2);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* Error message animation */
+.error-message {
+  animation: shakeError 0.4s ease-in-out;
+}
+
+/* Define keyframes */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Responsive animations */
+@media (max-width: 1024px) {
+  .registration-form {
+    animation: slideInUp 0.8s ease-out;
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

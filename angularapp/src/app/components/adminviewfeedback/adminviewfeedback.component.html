@@ -1,0 +1,35 @@
+
+<div style="margin-top: 80px;">
+  <div class="feedback-header">
+    <h1>Feedback Details</h1>
+  </div>
+  
+  <div class="feedback-table">
+      <table>
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>User Name</th>
+            <th>Feedback Text</th>
+            <th>Posted Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="feedbacks.length === 0">
+            <td colspan="5">No feedbacks found.</td>
+          </tr>
+          <tr *ngFor="let feedback of feedbacks; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ getUsername(feedback.UserId) }}</td>
+            <td>{{ feedback.FeedbackText }}</td>
+            <td>{{ feedback.Date | date }}</td>
+            <td>
+              <button (click)="openModal(feedback.UserId)">Show Profile</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+</div>
